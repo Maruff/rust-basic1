@@ -7,6 +7,7 @@ table! {
         id -> Int4,
         name -> Text,
         email -> Text,
+        password_hash -> Text, // Added password_hash
         created_at -> Timestamptz,
     }
 }
@@ -16,6 +17,7 @@ pub struct User {
     pub id: i32,
     pub name: String,
     pub email: String,
+    pub password_hash: String, // Added password_hash
     pub created_at: DateTime<Utc>,
 }
 
@@ -24,6 +26,7 @@ pub struct User {
 pub struct NewUser {
     pub name: String,
     pub email: String,
+    pub password_hash: String, // Added password_hash
 }
 
 #[derive(AsChangeset, Deserialize, Debug)]
@@ -31,4 +34,5 @@ pub struct NewUser {
 pub struct UpdateUser {
     pub name: Option<String>,
     pub email: Option<String>,
+    pub password_hash: Option<String>, // Added password_hash
 }
