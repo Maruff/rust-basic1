@@ -11,7 +11,7 @@ pub fn get_all(conn: &mut PgConnection) -> Result<Vec<User>, diesel::result::Err
 
 pub fn create(conn: &mut PgConnection, new_user: &NewUser) -> Result<User, diesel::result::Error> {
     diesel::insert_into(users::table)
-        .values(new_user)
+        .values(new_user) // Insert the NewUser struct (which now has the hash)
         .get_result::<User>(conn)
 }
 
