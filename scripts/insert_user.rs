@@ -5,7 +5,7 @@ use diesel::prelude::*;
 use my_user_api::models::NewUser; // Import your NewUser struct
 // ... other imports (bcrypt, your database connection setup, etc.)
 
-fn insert_sample_user(conn: &mut PgConnection) -> Result<(), diesel::result::Error> {
+fn insert_sample_user(conn: &mut DbConnection) -> Result<(), diesel::result::Error> {
     let password = "my_secret_password";  // In real app, get from user input
     let password_hash = bcrypt::hash(password, bcrypt::DEFAULT_COST).unwrap(); // Hash the password
 
@@ -24,7 +24,7 @@ fn insert_sample_user(conn: &mut PgConnection) -> Result<(), diesel::result::Err
 
 fn main() -> Result<(), diesel::result::Error> {
     let database_url = "your_database_url"; // Or get from environment variables
-    let mut connection = PgConnection::establish(database_url)?;
+    let mut connection = DbConnection::establish(database_url)?;
 
     insert_sample_user(&mut connection)?;
 
