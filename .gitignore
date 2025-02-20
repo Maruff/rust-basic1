@@ -1,0 +1,47 @@
+# Rust specific
+target/
+**/*.rs.bk
+
+# Dependencies
+Cargo.lock
+Cargo.toml.orig
+.env
+
+# Build artifacts
+*.d
+*.o
+*.so
+*.rlib
+*.a
+*.dSYM
+*.exe
+*.exe~
+*.out
+*.out~
+*.stackdump
+*.log
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.temp
+*.orig
+*.rej
+*.sublime-project
+*.sublime-workspace
+*.kate-swp
+*.directory
+
+# Node specific
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Miscellaneous
+.DS_Store
+Thumbs.db

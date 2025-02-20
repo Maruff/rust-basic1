@@ -1,7 +1,8 @@
 use serde::Deserialize;
-use envy::FromEnv;
+use envy::from_env;
+use dotenv::dotenv;
 
-#[derive(Deserialize, FromEnv, Debug)]
+#[derive(Deserialize, Debug)]
 pub struct Config {
     pub database_url: String,
     pub server_host: String,
@@ -9,5 +10,6 @@ pub struct Config {
 }
 
 pub fn load_config() -> Result<Config, envy::Error> {
-    envy::from_env()
+    dotenv().ok(); // Load environment variables from .env file
+    from_env::<Config>()
 }

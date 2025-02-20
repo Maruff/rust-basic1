@@ -1,4 +1,5 @@
 use thiserror::Error;
+use diesel::r2d2;
 
 #[derive(Error, Debug)]
 pub enum AppError {
